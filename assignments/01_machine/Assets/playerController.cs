@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class playerController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+
     }
 
     // Update is called once per frame
@@ -32,6 +33,17 @@ public class playerController : MonoBehaviour
             TimerText.text = intTimeLeft.ToString();
         }
 
-        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("battery"))
+        {
+            timeLeft += 5;
+            Destroy(other.gameObject);
+            //TimerText.text = intTimeLeft.ToString();
+      
+        }
     }
 }
