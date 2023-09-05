@@ -11,11 +11,15 @@ public class playerController : MonoBehaviour
     public float timeLeft = 20;
     public int intTimeLeft;
     public TextMeshProUGUI TimerText;
+    public TextMeshProUGUI WinText;
+    public Rigidbody rb;
+    public float jumpForce = 6.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
+        WinText.enabled = false;
     }
 
     // Update is called once per frame
@@ -33,6 +37,13 @@ public class playerController : MonoBehaviour
             TimerText.text = intTimeLeft.ToString();
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        }
+
 
     }
 
@@ -44,6 +55,14 @@ public class playerController : MonoBehaviour
             Destroy(other.gameObject);
             //TimerText.text = intTimeLeft.ToString();
       
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("winChecker"))
+        {
+            WinText.enabled = true;
         }
     }
 }

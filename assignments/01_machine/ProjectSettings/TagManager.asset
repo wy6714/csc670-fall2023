@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - battery
+  - winChecker
   layers:
   - Default
   - TransparentFX
