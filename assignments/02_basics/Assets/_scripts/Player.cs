@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : MonoBehaviour
 {
     private CharacterController characterController;
-    [SerializeField]private float speed = 10f;
-    
-    
+    [SerializeField] private float speed = 10f;
+    public int score = 0;
+    public GameObject keyPrefeb;
+
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        Vector3 keyPos = new Vector3(Random.Range(0f, 18f), 1.5f, -6f);
+        GameObject keyObj = Instantiate(keyPrefeb, keyPos, Quaternion.identity);
+        //keyObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,6 +46,30 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0.0f, 0f, 0.0f);
         }
 
-        
+     
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("gem"))
+        {
+            Destroy(other.gameObject);
+            score += 1;
+            Debug.Log("score = " + score);
+
+
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            
+            Debug.Log("Catch You!");
+
+        }
+    }
+
+    
+
+
 }

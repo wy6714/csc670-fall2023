@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class gameManager : MonoBehaviour
 {
     public GameObject cubePrefab;
+    
     //public NavMeshSurface surface;
     
     // Start is called before the first frame update
@@ -17,6 +18,8 @@ public class gameManager : MonoBehaviour
 
         //surface.BuildNavMesh();
     }
+
+    
 
     void generateCube()
     {
