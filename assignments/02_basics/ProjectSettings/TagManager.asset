@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gem
   - Enemy
+  - key
   layers:
   - Default
   - TransparentFX

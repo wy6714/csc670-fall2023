@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 10f;
     public int score = 0;
     public GameObject keyPrefeb;
+    private GameObject keyObj;
 
 
     // Start is called before the first frame update
@@ -18,8 +19,8 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         Vector3 keyPos = new Vector3(Random.Range(0f, 18f), 1.5f, -6f);
-        GameObject keyObj = Instantiate(keyPrefeb, keyPos, Quaternion.identity);
-        //keyObj.SetActive(false);
+        keyObj = Instantiate(keyPrefeb, keyPos, Quaternion.identity);
+        keyObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,6 +47,10 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0.0f, 0f, 0.0f);
         }
 
+        if(score == 3)
+        {
+            keyObj.SetActive(true);
+        }
      
 
     }
@@ -65,6 +70,13 @@ public class Player : MonoBehaviour
         {
             
             Debug.Log("Catch You!");
+
+        }
+
+        if (other.CompareTag("key"))
+        {
+
+            Debug.Log("collide with the key");
 
         }
     }

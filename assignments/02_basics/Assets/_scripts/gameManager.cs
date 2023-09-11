@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 
 public class gameManager : MonoBehaviour
@@ -48,6 +49,12 @@ public class gameManager : MonoBehaviour
             
             
         }    
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene("SampleScene");
     }
 
 
