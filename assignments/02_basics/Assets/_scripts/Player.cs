@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public GameObject keyPrefeb;
     private GameObject keyObj;
     public GameObject LooseText;
+    public AudioSource getGem;
+    public AudioSource gameOver;
 
 
     // Start is called before the first frame update
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("gem"))
         {
+            getGem.Play();
             Destroy(other.gameObject);
             score += 1;
             Debug.Log("score = " + score);
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
+            gameOver.Play();
             Destroy(gameObject);
             Destroy(other.gameObject);
             LooseText.SetActive(true);
