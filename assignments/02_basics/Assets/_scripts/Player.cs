@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     public int score = 0;
     public GameObject keyPrefeb;
     private GameObject keyObj;
+    public GameObject LooseText;
 
 
     // Start is called before the first frame update
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour
         Vector3 keyPos = new Vector3(Random.Range(0f, 18f), 1.5f, -6f);
         keyObj = Instantiate(keyPrefeb, keyPos, Quaternion.identity);
         keyObj.SetActive(false);
+
+        LooseText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,8 +72,8 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            
-            Debug.Log("Catch You!");
+            Destroy(gameObject);
+            LooseText.SetActive(true);
 
         }
 
