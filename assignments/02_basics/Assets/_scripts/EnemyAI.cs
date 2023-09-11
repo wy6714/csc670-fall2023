@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {

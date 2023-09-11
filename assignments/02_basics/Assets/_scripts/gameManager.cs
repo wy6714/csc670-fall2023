@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using UnityEngine.AI;
+
 
 public class gameManager : MonoBehaviour
 {
     public GameObject cubePrefab;
-    private float cubeVolum = 2f;
-    //public float x = -9;
+    public NavMeshSurface surface;
+    
     // Start is called before the first frame update
     void Start()
     {
         generateCube();
+
+        surface.BuildNavMesh();
     }
 
     void generateCube()
@@ -40,9 +44,9 @@ public class gameManager : MonoBehaviour
             }
             
             
-        }
-        
+        }    
     }
+
 
     // Update is called once per frame
     void Update()
