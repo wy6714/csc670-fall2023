@@ -10,14 +10,16 @@ public class gameManager : MonoBehaviour
 {
     public GameObject cubePrefab;
     
+
     //public NavMeshSurface surface;
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        
         generateCube();
 
-        //surface.BuildNavMesh();
+        
     }
 
     
@@ -53,9 +55,11 @@ public class gameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Scene01");
     }
+
+    
 
 
     // Update is called once per frame

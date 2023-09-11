@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SocialPlatforms.Impl;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -73,14 +74,15 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
+            Destroy(other.gameObject);
             LooseText.SetActive(true);
 
         }
 
         if (other.CompareTag("key"))
         {
-
-            Debug.Log("collide with the key");
+            Destroy(other.gameObject);
+            SceneManager.LoadScene("Scene02");
 
         }
     }
