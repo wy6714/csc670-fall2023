@@ -9,6 +9,7 @@ public class GameOfLife : MonoBehaviour
     //public Cells[,] cellArray;
     private float cellWidth = 1f;
     private float space = 0.1f;
+    public int caseNum = 0;
  
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,23 @@ public class GameOfLife : MonoBehaviour
                 cellArray[x, y].y = y;
                 cellArray[x, y].alive = (Random.value < 0.2f);
 
+
+                //if (x == 0 && y == 0)
+                //{
+                //    cellArray[x, y].cellPositionType = Cases.case00;
+                //}
+                //else if (x == 0 && y == 1)
+                //{
+                //    cellArray[x, y].cellPositionType = Cases.case01;
+                //}
+                //else if(x == 0 && y== 19)
+                //{
+                //    cellArray[x, y].cellPositionType = Cases.case019;
+                //}
+                 if (x > 0 && x < 19 && y > 0 && y < 19)
+                {
+                    cellArray[x, y].cellPositionType = Cases.caseMiddle;
+                }
                 //cellArray[x, y] = new Cell((Random.value < 0.2f), x, y);
             }
         }

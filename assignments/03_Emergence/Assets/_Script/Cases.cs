@@ -8,9 +8,9 @@ public enum Cases
    case01,
    case019,
    case10,
-   case119,
+   case118,
    caseMiddle,
-   case190,
-   case191,
-   case1919
+   case180,
+   case181,
+   case1818
 }
