@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IObserver : MonoBehaviour
+public interface IObserver 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //subject use this interface to communicate with the observer
+    public void OnNotify(playerActions actions);
 }
