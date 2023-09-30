@@ -8,13 +8,16 @@ public class GameOfLife : MonoBehaviour
     int rows = 20;
     int columns = 20;
     Cell[,] cells;
+    //public GameObject[,] cellObjs; 
     float cellWidth = 1f;
     float spacing = 0.1f;
+    public Renderer rend;
 
     // Start is called before the first frame update
     void Start()
     {
         cells = new Cell[rows, columns];
+        //cellObjs = new GameObject[rows, columns];
 
         for(int x = 0; x < rows; x++)
         {
@@ -25,6 +28,7 @@ public class GameOfLife : MonoBehaviour
                 cells[x, y].x = x;
                 cells[x, y].y = y;
                 cells[x, y].state = Random.Range(0,2);
+                
                 Debug.Log("x: " + cells[x, y].x + " y: " + cells[x, y].y + " state: " + cells[x, y].state);
 
                 //cells obj
@@ -32,7 +36,8 @@ public class GameOfLife : MonoBehaviour
                 pos.x = pos.x + x * (cellWidth + spacing);
                 pos.z = pos.z + y * (cellWidth + spacing);
                 GameObject cellObj = Instantiate(cellPrefab, pos, transform.rotation);
-                
+                //cellObjs[x, y] = cellObj;
+                rend = cellObj.GetComponentInChildren<Renderer>();
             }
         }
     }
@@ -40,16 +45,18 @@ public class GameOfLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         countNeghbors();
     }
 
-    public int countNeghbors(Cell cell)
+    public int countNeghbors()
     {
+        int neighbors = 0;
 
-        return cell.neighbors;
+        return neighbors;
     }
+
+    
+    
 }
-public class Cell
-{
-    public int x, y, neighbors, state;
-}
+
