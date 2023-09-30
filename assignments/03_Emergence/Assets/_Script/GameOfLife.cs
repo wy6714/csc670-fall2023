@@ -38,6 +38,7 @@ public class GameOfLife : MonoBehaviour
                 
             }
         }
+        cells[0, 0].state = 0;
         countNeghbors();
 
 
@@ -46,7 +47,7 @@ public class GameOfLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.UpArrow)|| Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow)|| Input.GetKeyUp(KeyCode.RightArrow))
         {
             countNeghbors();
             PopulationControl();
