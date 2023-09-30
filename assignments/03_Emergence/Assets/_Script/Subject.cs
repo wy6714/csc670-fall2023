@@ -21,13 +21,13 @@ public abstract class Subject : MonoBehaviour
     }
 
     //notify each observer that event happens
-    public void NotifyObservers(playerActions actions)
+    public void NotifyObservers(Actions actions)
     {
         observerList.ForEach(observer => observer.OnNotify(actions));
 
         //foreach (var observer in observerList)
         //{
-        //    observer.OnNotify();
+        //    observer.OnNotify(actions);
         //}
     }
 }

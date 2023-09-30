@@ -25,7 +25,6 @@ public class GameOfLife : MonoBehaviour
                 cells[x, y].x = x;
                 cells[x, y].y = y;
                 cells[x, y].state = Random.Range(0,2);
-                cells[x, y].preState = 0;
                 Debug.Log("x: " + cells[x, y].x + " y: " + cells[x, y].y + " state: " + cells[x, y].state);
 
                 //cells obj
@@ -41,10 +40,16 @@ public class GameOfLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        countNeghbors();
+    }
+
+    public int countNeghbors(Cell cell)
+    {
+
+        return cell.neighbors;
     }
 }
 public class Cell
 {
-    public int x, y, state, preState;
+    public int x, y, neighbors, state;
 }
