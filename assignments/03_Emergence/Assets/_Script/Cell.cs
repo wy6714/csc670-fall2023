@@ -14,6 +14,10 @@ public class Cell: MonoBehaviour
     private void Start()
     {
         rend = gameObject.GetComponentInChildren<Renderer>();
+        
+    }
+    private void Update()
+    {
         UpdateColor();
     }
 

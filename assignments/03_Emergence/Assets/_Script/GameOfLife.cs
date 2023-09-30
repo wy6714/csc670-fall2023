@@ -39,13 +39,14 @@ public class GameOfLife : MonoBehaviour
             }
         }
 
-        countNeghbors();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        countNeghbors();
+        PopulationControl();
     }
 
     void countNeghbors()
@@ -97,6 +98,34 @@ public class GameOfLife : MonoBehaviour
                 }
 
                 cells[x, y].neighbors = neighbors;
+            }
+        }
+    }
+
+    void PopulationControl()
+    {
+        for(int x = 0; x<rows; x++)
+        {
+            for(int y =0; y<rows; y++)
+            {
+                //Rule:
+                //live -> 2<neighbors<3 ->live
+                //dead -> 3neighbor -> live
+                //other live -> die | other die -> live
+                if (cells[x,y].state == 1)
+                {
+                    if (cells[x,y].neighbors != 2 && cells[x, y].neighbors != 3)
+                    {
+                        cells[x, y].state = 0;
+                    }
+                }
+                else
+                {
+                    if (cells[x,y].neighbors == 3)
+                    {
+                        cells[x, y].state = 1;
+                    }
+                }
             }
         }
     }
