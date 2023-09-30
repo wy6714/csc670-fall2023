@@ -11,7 +11,9 @@ public class GameOfLife : MonoBehaviour
     //public GameObject[,] cellObjs; 
     float cellWidth = 1f;
     float spacing = 0.1f;
-    public Renderer rend;
+    Renderer rend;
+    public Color aliveColor;
+    public Color deadColor;
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +37,12 @@ public class GameOfLife : MonoBehaviour
                 Vector3 pos = transform.position;
                 pos.x = pos.x + x * (cellWidth + spacing);
                 pos.z = pos.z + y * (cellWidth + spacing);
+               
                 GameObject cellObj = Instantiate(cellPrefab, pos, transform.rotation);
-                //cellObjs[x, y] = cellObj;
-                rend = cellObj.GetComponentInChildren<Renderer>();
+                cells[x, y].cell = cellObj;
+                rend = cells[x, y].cell.GetComponentInChildren<Renderer>();
+                updateColor(cells[x, y].state);
+                
             }
         }
     }
@@ -57,6 +62,17 @@ public class GameOfLife : MonoBehaviour
     }
 
     
+    void updateColor(int alive)
+    {
+        if (alive == 1)
+        {
+            rend.material.color = aliveColor;
+        }
+        else
+        {
+            rend.material.color = deadColor;
+        }
+    }
     
 }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5669365202755111170}
   - component: {fileID: 459485397755479919}
   - component: {fileID: 2343808793293752005}
+  - component: {fileID: 5398302449950004328}
   m_Layer: 0
   m_Name: cell
   m_TagString: Subject
@@ -82,6 +83,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5398302449950004328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246956352557822871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b5411a619b54262a7d64f1eb870d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  neighbors: 0
+  state: 0
+  cell: {fileID: 0}
+  aliveColor: {r: 0.9150943, g: 0.13381095, b: 0.13381095, a: 0}
+  deadColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3297455524911957232
 GameObject:
   m_ObjectHideFlags: 0
