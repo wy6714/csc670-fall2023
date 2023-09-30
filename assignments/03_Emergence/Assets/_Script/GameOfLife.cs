@@ -5,49 +5,35 @@ using UnityEngine;
 public class GameOfLife : MonoBehaviour
 {
     public GameObject cellPrefab;
-    public CellScript[,] cellArray; //array, stored data type is cellScript
-    //public Cells[,] cellArray;
-    private float cellWidth = 1f;
-    private float space = 0.1f;
-    public int caseNum = 0;
- 
+    int rows = 20;
+    int columns = 20;
+    Cell[,] cells;
+    float cellWidth = 1f;
+    float spacing = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
-        cellArray = new CellScript[20, 20];
-        //cellArray = new Cells[20, 20];
+        cells = new Cell[rows, columns];
 
-        for(int x = 0; x<20; x++)
+        for(int x = 0; x < rows; x++)
         {
-            for(int y =0; y<20; y++)
+            for (int y=0; y<rows; y++)
             {
+                //cells info
+                cells[x, y] = new Cell();
+                cells[x, y].x = x;
+                cells[x, y].y = y;
+                cells[x, y].state = Random.Range(0,2);
+                cells[x, y].preState = 0;
+                Debug.Log("x: " + cells[x, y].x + " y: " + cells[x, y].y + " state: " + cells[x, y].state);
+
+                //cells obj
                 Vector3 pos = transform.position;
-                pos.x = pos.x + x * (cellWidth+space);
-                pos.z = pos.z + y * (cellWidth+space);
+                pos.x = pos.x + x * (cellWidth + spacing);
+                pos.z = pos.z + y * (cellWidth + spacing);
                 GameObject cellObj = Instantiate(cellPrefab, pos, transform.rotation);
-                cellArray[x, y] = cellObj.GetComponent<CellScript>();
-                cellArray[x, y].x = x;
-                cellArray[x, y].y = y;
-                cellArray[x, y].alive = (Random.value < 0.2f);
-
-
-                //if (x == 0 && y == 0)
-                //{
-                //    cellArray[x, y].cellPositionType = Cases.case00;
-                //}
-                //else if (x == 0 && y == 1)
-                //{
-                //    cellArray[x, y].cellPositionType = Cases.case01;
-                //}
-                //else if(x == 0 && y== 19)
-                //{
-                //    cellArray[x, y].cellPositionType = Cases.case019;
-                //}
-                 if (x > 0 && x < 19 && y > 0 && y < 19)
-                {
-                    cellArray[x, y].cellPositionType = Cases.caseMiddle;
-                }
-                //cellArray[x, y] = new Cell((Random.value < 0.2f), x, y);
+                
             }
         }
     }
@@ -57,4 +43,8 @@ public class GameOfLife : MonoBehaviour
     {
         
     }
+}
+public class Cell
+{
+    public int x, y, state, preState;
 }
