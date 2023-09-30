@@ -3,10 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Cell
+public class Cell: MonoBehaviour
 {
-    
+    Renderer rend;
+    public Color aliveColor;
+    public Color deadColor;
+
     public int x, y, neighbors, state;
-    public GameObject cell;
-   
+
+    private void Start()
+    {
+        rend = gameObject.GetComponentInChildren<Renderer>();
+        UpdateColor();
+    }
+
+    public void UpdateColor()
+    {
+        if (state == 1)
+        {
+            rend.material.color = aliveColor;
+        }
+        else
+        {
+            rend.material.color = deadColor;
+        }
+    }
+
 }
