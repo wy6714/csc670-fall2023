@@ -31,6 +31,7 @@ public class GameOfLife : MonoBehaviour
                 cells[x, y] = cellObj.GetComponent<Cell>();
                 cells[x, y].x = x;
                 cells[x, y].y = y;
+                cells[x, y].neighbors = 0;
                 cells[x, y].state = Random.Range(0,2);
                 
                 Debug.Log("x: " + cells[x, y].x + " y: " + cells[x, y].y + " state: " + cells[x, y].state);  
@@ -51,7 +52,7 @@ public class GameOfLife : MonoBehaviour
     {
         for(int x =0; x<rows; x++)
         {
-            for(int y =0; y< rows; x++)
+            for(int y =0; y< rows; y++)
             {
                 int neighbors = 0;
                 //up
