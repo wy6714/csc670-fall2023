@@ -36,4 +36,14 @@ public class Player :MonoBehaviour
             transform.position = pos;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.CompareTag("target"))
+        {
+            
+            Destroy(other.gameObject);
+        }
+    }
 }

@@ -35,12 +35,9 @@ public class Cell: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the triggering object has the 'Player' tag and the cell's state is 0
         if (other.gameObject.CompareTag("Player") && state == 1)
         {
-            // Destroy the player GameObject
             Destroy(other.gameObject);
         }
     }
-
 }

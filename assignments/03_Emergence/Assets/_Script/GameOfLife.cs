@@ -10,12 +10,15 @@ public class GameOfLife : MonoBehaviour
     Cell[,] cells;
     float cellWidth = 1f;
     float spacing = 0.1f;
+    public GameObject targetPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         cells = new Cell[rows, columns];
-        
+
+        Vector3 targetPos = new Vector3(20.9f, 0, 20.9f);
+        GameObject targetObj = Instantiate(targetPrefab, targetPos, transform.rotation);
 
         for(int x = 0; x < rows; x++)
         {
@@ -40,7 +43,6 @@ public class GameOfLife : MonoBehaviour
         }
         cells[0, 0].state = 0;
         countNeghbors();
-
 
     }
 
