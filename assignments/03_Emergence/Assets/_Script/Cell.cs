@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class Cell: MonoBehaviour
+public class Cell:MonoBehaviour
 {
     Renderer rend;
     public Color aliveColor;
@@ -38,6 +39,8 @@ public class Cell: MonoBehaviour
         if (other.gameObject.CompareTag("Player") && state == 1)
         {
             Destroy(other.gameObject);
+            SceneManager.LoadScene("gameOverScene");
+
         }
     }
 }

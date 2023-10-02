@@ -42,7 +42,6 @@ public class Player :MonoBehaviour
         
         if (other.gameObject.CompareTag("target"))
         {
-            
             Destroy(other.gameObject);
         }
     }
