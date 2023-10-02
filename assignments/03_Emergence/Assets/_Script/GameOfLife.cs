@@ -138,6 +138,44 @@ public class GameOfLife : MonoBehaviour
             }
         }
     }
+
+    public void automata()
+    {
+        //clear cell
+        for(int x=0; x<rows; x++)
+        {
+            for(int y=0; y<rows; y++)
+            {
+                cells[x, y].state = 0;
+            }
+        }
+
+        for (int x = 7; x < 12; x++)
+        {
+            for (int y = 5; y < 14; y += 8)
+            {
+                cells[x, y].state = 1;
+            }
+
+        }
+
+
+        for (int x = 5; x < 14; x++)
+        {
+            for (int y = 7; y < 13; y += 4)
+            {
+                cells[x, y].state = 1;
+            }
+
+        }
+
+        for (int x = 3; x < 16; x++)
+        {
+            cells[x, 9].state = 1;
+
+        }
+
+    }
   
     
 }
