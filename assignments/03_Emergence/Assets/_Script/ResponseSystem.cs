@@ -7,17 +7,19 @@ using UnityEngine.SceneManagement;
 public class ResponseSystem : MonoBehaviour,IObserver
 {
     [SerializeField] Subject subject;
-    public bool timeOn=true;
-    public float timeNum=0;
+    [SerializeField] bool timeOn=true;
+    float timeNum=0;
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI winText;
     public GameObject winBox;
+    public GameObject playButtonObj;
 
     // Start is called before the first frame update
     void Start()
     {
         timeOn = true;
-        
+        winText.text = "Ready to Start?";
+
         foreach (Subject subject in FindObjectsOfType<Subject>())
         {
             subject.AddObservor(this);
@@ -38,7 +40,7 @@ public class ResponseSystem : MonoBehaviour,IObserver
         {
             winBox.SetActive(true);
             TimerText.text = "Time: " + timeNum.ToString();
-            winText.text = "You Spend: " + timeNum.ToString() + " seconds!";
+            //winText.text = "Ready to Start?";
         }
         
     }
@@ -50,7 +52,7 @@ public class ResponseSystem : MonoBehaviour,IObserver
         {
             case (Actions.Win):
                 timeOn = false;
-                
+                winText.text = "You Spend: " + timeNum.ToString() + " seconds!";
                 return;
 
             default:
@@ -58,6 +60,12 @@ public class ResponseSystem : MonoBehaviour,IObserver
         }
         
         
+    }
+
+    public void playButton()
+    {
+        timeOn = true;
+        playButtonObj.SetActive(false);
     }
 
    
