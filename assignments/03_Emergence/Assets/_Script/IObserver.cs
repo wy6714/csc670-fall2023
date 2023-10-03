@@ -10,7 +10,6 @@ public interface IObserver
 
 public enum Actions
 {
-    gameOver,
-    getScore
+   Win
 }
 

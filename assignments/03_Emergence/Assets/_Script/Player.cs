@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player :MonoBehaviour
+public class Player :Subject
 {
   
     // Start is called before the first frame update
@@ -75,6 +75,7 @@ public class Player :MonoBehaviour
         if (other.gameObject.CompareTag("target"))
         {
             Destroy(other.gameObject);
+            NotifyObservers(Actions.Win);
         }
     }
 }

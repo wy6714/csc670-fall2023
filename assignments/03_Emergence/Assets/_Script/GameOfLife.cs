@@ -13,9 +13,12 @@ public class GameOfLife : MonoBehaviour
     float spacing = 0.1f;
     public GameObject targetPrefab;
 
+    
     // Start is called before the first frame update
     void Start()
     {
+        
+
         cells = new Cell[rows, columns];
 
         Vector3 targetPos = new Vector3(20.9f, 0, 20.9f);
