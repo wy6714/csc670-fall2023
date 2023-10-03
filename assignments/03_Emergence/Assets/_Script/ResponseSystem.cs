@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ResponseSystem : MonoBehaviour,IObserver
 {
     [SerializeField] Subject subject;
-    public bool timeOn = true;
+    public bool timeOn;
     public float timeNum=0;
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI winText;
@@ -22,7 +22,7 @@ public class ResponseSystem : MonoBehaviour,IObserver
             subject.AddObservor(this);
         }
 
-        
+        timeOn = true;
 
     }
     void Update()
