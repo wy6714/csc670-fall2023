@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class Cell:MonoBehaviour
+public class Cell : MonoBehaviour
 {
-    Renderer rend;
+    public Renderer rend;
     public Color aliveColor;
     public Color deadColor;
 
@@ -15,7 +15,7 @@ public class Cell:MonoBehaviour
     private void Start()
     {
         rend = gameObject.GetComponentInChildren<Renderer>();
-        
+
     }
     private void Update()
     {
