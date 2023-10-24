@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BroomController : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 2f;
     public float rotateAmount = 120f;
     private float rotateValue;
     // Start is called before the first frame update
