@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-       
-        if(Input.GetKeyUp(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
         }
