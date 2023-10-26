@@ -17,7 +17,7 @@ public class BroomController : MonoBehaviour
     void Update()
     {
         //move forward
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += -transform.forward * speed * Time.deltaTime;
 
         //rotate
         float hInput = Input.GetAxis("Horizontal");
@@ -26,10 +26,10 @@ public class BroomController : MonoBehaviour
 
         //Mathf.Sign decides go up or down based on value of vInput's negative or positive
         //up and down 0-20 degree
-        float pitch = Mathf.Lerp(0, 20, Mathf.Abs(vInput)) * -Mathf.Sign(vInput);
+        float pitch = Mathf.Lerp(0, 20, Mathf.Abs(vInput)) * Mathf.Sign(vInput);
 
         //roll
-        float roll = Mathf.Lerp(0, 30, Mathf.Abs(hInput)) * -Mathf.Sign(hInput);
+        float roll = Mathf.Lerp(0, 30, Mathf.Abs(hInput)) * Mathf.Sign(hInput);
         transform.localRotation = Quaternion.Euler(Vector3.up * rotateValue
             + Vector3.right * pitch
             + Vector3.forward * roll);
