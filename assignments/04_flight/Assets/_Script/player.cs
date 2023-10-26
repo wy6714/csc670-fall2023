@@ -18,5 +18,22 @@ public class player : MonoBehaviour
     {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(move * speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 45f, 0.0f);
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.rotation = Quaternion.Euler(0.0f, -45f, 0.0f);
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 180f, 0.0f);
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0f, 0.0f);
+        }
     }
 }
