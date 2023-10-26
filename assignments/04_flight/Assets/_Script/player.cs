@@ -2,74 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    private CharacterController characterController;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] Transform isGroundChecker;
-    [SerializeField] Transform Ground;
-    [SerializeField] bool isGround;
-    private float jumpForce = 200f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        characterController = GetComponent<CharacterController>();
+    public CharacterController controller;
+    public Transform groundCheck;
+    public LayerMask groundMask;
 
-    }
+    public float moveSpeed = 5f;
+    public float jumpHeight = 2f;
+    public float groundDistance = 0.2f;
 
-    // Update is called once per frame
+    private bool isGrounded;
+    private Vector3 velocity;
+
     void Update()
     {
-        GroundChecker();
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (isGround)
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && velocity.y < 0)
         {
-            characterController.Move(move * speed * Time.deltaTime);
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                transform.rotation = Quaternion.Euler(0.0f, 45f, 0.0f);
-            }
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.rotation = Quaternion.Euler(0.0f, -45f, 0.0f);
-            }
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                transform.rotation = Quaternion.Euler(0.0f, 180f, 0.0f);
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                transform.rotation = Quaternion.Euler(0.0f, 0f, 0.0f);
-            }
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                characterController.Move(Vector3.up * jumpForce * Time.deltaTime);
-            }
+            velocity.y = -2f;
         }
 
-        if (!isGround)
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+       
+        if(Input.GetKeyUp(KeyCode.Space) && isGrounded)
         {
-            characterController.Move(Vector3.down * 9.8f * Time.deltaTime);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
         }
 
-    }
-
-    private bool GroundChecker()
-    {
-        float isGroundCheckerY = isGroundChecker.transform.position.y;
-        float GroundY = Ground.transform.position.y;
-        float fromGround = isGroundCheckerY - GroundY;
-        if (fromGround <= 0.1)
-        {
-           isGround = true;
-        }
-        else
-        {
-            isGround = false;
-        }
-
-        return isGround;
+        velocity.y += Physics.gravity.y * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 }
