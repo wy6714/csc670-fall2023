@@ -40,17 +40,26 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
+
+     
+        
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
         }
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        
+
 
         attackChecker.position = groundCheck.position;
+
+        
+
+
     }
     private void OnTriggerEnter(Collider other)
     {
