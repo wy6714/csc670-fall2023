@@ -15,9 +15,21 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private Vector3 velocity;
+    public int count = 0;
+
+    public GameObject starRoad;
+
+    private void Start()
+    {
+        starRoad.SetActive(false);
+    }
 
     void Update()
     {
+        if (count > 2)
+        {
+            starRoad.SetActive(true);
+        }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -46,6 +58,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("player die");
             //Destroy(gameObject);
+        }
+
+        if (other.CompareTag("star"))
+        {
+            Destroy(other.gameObject);
+            count += 1;
         }
     }
 }
