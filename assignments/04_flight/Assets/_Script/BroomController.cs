@@ -43,7 +43,8 @@ public class BroomController : MonoBehaviour
             float roll = Mathf.Lerp(0, 30, Mathf.Abs(hInput)) * Mathf.Sign(hInput);
             if (energy <= 0)
             {
-                roll = 30;
+                pitch = 30;
+                roll = 0;
                 transform.position += Vector3.down * speed * Time.deltaTime;
             }
             transform.localRotation = Quaternion.Euler(Vector3.up * rotateValue
