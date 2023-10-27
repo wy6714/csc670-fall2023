@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BroomController : MonoBehaviour
@@ -16,6 +17,8 @@ public class BroomController : MonoBehaviour
     public float energyDecreseTime = 1.0f;
 
     public GameObject fuelMeterObj;
+
+    public int energyCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +68,11 @@ public class BroomController : MonoBehaviour
 
         
         updateEnergySlider();
+
+        if (energyCount == 7)
+        {
+            SceneManager.LoadScene("win");
+        }
     }
 
     private void EnergyDecreaseOvertime()
@@ -82,7 +90,8 @@ public class BroomController : MonoBehaviour
         if (other.CompareTag("energy"))
         {
             Destroy(other.gameObject);
-            energy += 10;
+            energy += 5;
+            energy += 1;
         }
     }
 

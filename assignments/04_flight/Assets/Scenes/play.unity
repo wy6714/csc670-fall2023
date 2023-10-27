@@ -1891,7 +1891,7 @@ GameObject:
   - component: {fileID: 529179971}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1932,7 +1932,7 @@ Transform:
   m_GameObject: {fileID: 529179965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0.56, z: 13.56}
+  m_LocalPosition: {x: 0.74, y: 0.56, z: -1.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2010,7 +2010,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.63829863, y: 0.79883134, z: 0.50206137}
-  m_Center: {x: 0.012835205, y: 0.10058433, z: 0.0005259365}
+  m_Center: {x: 0.012835205, y: 0.25, z: 0.0005259365}
 --- !u!1001 &629799203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7415,8 +7415,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.52, y: 0.06, z: 0.58}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.52, y: 0.29571235, z: 0.58}
+  m_Center: {x: 0, y: 0.117856205, z: 0}
 --- !u!4 &2132688135
 Transform:
   m_ObjectHideFlags: 0
@@ -7453,6 +7453,7 @@ MonoBehaviour:
   enerygySlider: {fileID: 1055975897}
   energyDecreseTime: 1
   fuelMeterObj: {fileID: 299515839}
+  energyCount: 0
 --- !u!1001 &492403941096055681
 PrefabInstance:
   m_ObjectHideFlags: 0
