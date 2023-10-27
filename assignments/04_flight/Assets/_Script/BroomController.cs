@@ -12,10 +12,14 @@ public class BroomController : MonoBehaviour
 
     public float energy = 20;
     public Slider enerygySlider;
+
+    public float energyDecreseTime = 1.0f;
+
+    public GameObject fuelMeterObj;
     // Start is called before the first frame update
     void Start()
     {
-        
+        fuelMeterObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,19 +44,33 @@ public class BroomController : MonoBehaviour
             transform.localRotation = Quaternion.Euler(Vector3.up * rotateValue
                 + Vector3.right * pitch
                 + Vector3.forward * roll);
+
+            //decrease energy
+            EnergyDecreaseOvertime();
+
+            //show broom energy
+            fuelMeterObj.SetActive(true);
         }
 
         if (energy > 100)
         {
             energy = 100;
         }
-        updateEnergySlider();
+
         
-
-
-
-
+        updateEnergySlider();
     }
+
+    private void EnergyDecreaseOvertime()
+    {
+        energyDecreseTime -= Time.deltaTime;
+        if (energyDecreseTime <= 0)
+        {
+            energy -= 1;
+            energyDecreseTime = 1.0f;
+        }
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("energy"))
