@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BroomController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class BroomController : MonoBehaviour
     private float rotateValue;
     public GameManager gm;
 
-    public float energy = 100;
+    public float energy = 20;
+    public Slider enerygySlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,10 @@ public class BroomController : MonoBehaviour
         {
             energy = 100;
         }
+        updateEnergySlider();
         
+
+
 
 
     }
@@ -53,7 +58,16 @@ public class BroomController : MonoBehaviour
         if (other.CompareTag("energy"))
         {
             Destroy(other.gameObject);
-            energy += 20;
+            energy += 10;
         }
     }
+
+    public void updateEnergySlider()
+    {
+        Debug.Log(energy);
+        enerygySlider.value = energy;
+    }
+    
+        
+    
 }

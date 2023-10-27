@@ -29,5 +29,6 @@ public class GameManager : MonoBehaviour
             broomMegaObj.SetActive(true);
             playerObj.SetActive(false);
         }
+        
     }
 }
