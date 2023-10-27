@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public GameObject playerObj;
     public Camera cameraPos;
     public bool onBroom = false;
+    public GameObject taskPanel;
     void Start()
     {
         broomMegaObj.SetActive(false);
+        taskPanel.SetActive(true);
     }
 
     // Update is called once per frame
@@ -30,5 +32,14 @@ public class GameManager : MonoBehaviour
             playerObj.SetActive(false);
         }
         
+    }
+    public void closeTask()
+    {
+        taskPanel.SetActive(false);
+    }
+
+    public void opentask()
+    {
+        taskPanel.SetActive(true);
     }
 }
