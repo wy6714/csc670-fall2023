@@ -48,4 +48,12 @@ public class BroomController : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("energy"))
+        {
+            Destroy(other.gameObject);
+            energy += 20;
+        }
+    }
 }

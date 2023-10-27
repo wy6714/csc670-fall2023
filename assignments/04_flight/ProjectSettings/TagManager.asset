@@ -7,6 +7,7 @@ TagManager:
   - playerAttack
   - enemy
   - star
+  - energy
   layers:
   - Default
   - TransparentFX
