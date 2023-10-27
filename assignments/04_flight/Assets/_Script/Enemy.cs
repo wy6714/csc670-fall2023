@@ -6,8 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform attackChecker;
-    public Transform isGournd;
     public Transform player;
     public float speed = 1f;
 
@@ -18,9 +16,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        attackChecker.position = isGournd.position;
+        
         float fromplayer = Vector3.Distance(transform.position, player.position);
-        Debug.Log(fromplayer);
+        //Debug.Log(fromplayer);
 
         if (fromplayer < 3f)
         {
@@ -37,6 +35,7 @@ public class EnemyAI : MonoBehaviour
         if (other.CompareTag("playerAttack"))
         {
             Destroy(gameObject);
+            
         }
     }
 

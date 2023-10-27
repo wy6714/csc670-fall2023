@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 529179970}
   groundCheck: {fileID: 1014672852}
+  attackChecker: {fileID: 1393988877}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -458,8 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c38b83dc7d943e59633d9d1118ed6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackChecker: {fileID: 1393988877}
-  isGournd: {fileID: 1014672852}
   player: {fileID: 529179968}
   speed: 2
 --- !u!65 &818411592
@@ -1320,7 +1319,7 @@ Transform:
   m_GameObject: {fileID: 1393988873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.009, y: -0.01, z: -1.7481}
+  m_LocalPosition: {x: 0.009, y: -0.01, z: 0.018}
   m_LocalScale: {x: 0.09379733, y: 0.09379733, z: 0.09379733}
   m_ConstrainProportionsScale: 0
   m_Children: []

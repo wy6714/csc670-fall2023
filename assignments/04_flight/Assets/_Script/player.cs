@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
     public Transform groundCheck;
+    public Transform attackChecker;
     public LayerMask groundMask;
 
     public float moveSpeed = 5f;
     public float jumpHeight = 2f;
-    public float groundDistance = 0.2f;
+    public float groundDistance = 0.4f;
 
     private bool isGrounded;
     private Vector3 velocity;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        attackChecker.position = groundCheck.position;
     }
     private void OnTriggerEnter(Collider other)
     {
