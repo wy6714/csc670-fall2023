@@ -37,4 +37,12 @@ public class PlayerController : MonoBehaviour
         velocity.y += Physics.gravity.y * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("enemy"))
+        {
+            Debug.Log("player die");
+            //Destroy(gameObject);
+        }
+    }
 }
