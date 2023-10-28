@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     public Camera cameraPos;
     public bool onBroom = false;
     public GameObject taskPanel;
+    public AudioSource bgm;
     void Start()
     {
         broomMegaObj.SetActive(false);
         taskPanel.SetActive(true);
+        bgm.Play();
     }
 
     // Update is called once per frame

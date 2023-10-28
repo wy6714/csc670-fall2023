@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform player;
     public float speed = 1f;
+    public AudioSource alertSound;
 
     private void Start()
     {
@@ -23,6 +24,10 @@ public class EnemyAI : MonoBehaviour
 
         if (fromplayer < 3f)
         {
+            if (!alertSound.isPlaying)
+            {
+                alertSound.Play();
+            }
             Vector3 direction = (transform.position-player.position).normalized;
             direction.y = 0f;
             transform.position = Vector3.Lerp(transform.position, player.position, speed * Time.deltaTime);

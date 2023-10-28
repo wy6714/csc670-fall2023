@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject starRoad;
 
+    public AudioSource collectSound;
+
     private void Start()
     {
         starRoad.SetActive(false);
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("star"))
         {
+            collectSound.Play();
             Destroy(other.gameObject);
             count += 1;
         }

@@ -19,6 +19,8 @@ public class BroomController : MonoBehaviour
     public GameObject fuelMeterObj;
 
     public int energyCount = 0;
+
+    public AudioSource collectSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +91,7 @@ public class BroomController : MonoBehaviour
     {
         if (other.CompareTag("energy"))
         {
+            collectSound.Play();
             Destroy(other.gameObject);
             energy += 5;
             energy += 1;
