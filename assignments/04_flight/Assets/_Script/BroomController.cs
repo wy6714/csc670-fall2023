@@ -94,7 +94,7 @@ public class BroomController : MonoBehaviour
             collectSound.Play();
             Destroy(other.gameObject);
             energy += 5;
-            energy += 1;
+            energyCount += 1;
         }
     }
 
