@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridSystem : MonoBehaviour
+public class GridSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public int width;
+    public int height;
+    public GridSystem(int width, int height)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.width = width;
+        this.height = height;
     }
 }
