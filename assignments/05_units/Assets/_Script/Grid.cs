@@ -1,24 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid
+public class Grid : MonoBehaviour
 {
-    public int width;
-    public int height;
-    public bool selected;
+    public GameObject normalBlock; 
 
-    public Grid(int width, int height)
-    {
-        this.width = width;
-        this.height = height;
-        this.selected = false;
-    }
-
-    private void OnMouseEnter()
+    private void Update()
     {
         
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
+            {
+                
+                Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
+                Instantiate(normalBlock, spawnPosition, Quaternion.identity);
+                Debug.Log("collide");
+            }
+        }
     }
-
-
 }
