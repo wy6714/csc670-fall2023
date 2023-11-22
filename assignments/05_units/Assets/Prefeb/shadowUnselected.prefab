@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e3d9f5f0bb44355b04b4215a5f2660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritePrefab: {fileID: 5722826895276663736, guid: 682543cda82764ca993d006f56caa112, type: 3}
+  normalBlock: {fileID: 5722826895276663736, guid: 682543cda82764ca993d006f56caa112, type: 3}
 --- !u!212 &658275072216533649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,4 +119,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1}
