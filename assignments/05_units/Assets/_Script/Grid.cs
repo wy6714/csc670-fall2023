@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public GameObject normalBlock;
+    public GameObject placeBlock;
 
     public Sprite hoverSprite;
     public Sprite normalSprite;
@@ -26,7 +26,7 @@ public class Grid : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
-                Instantiate(normalBlock, spawnPosition, Quaternion.identity);
+                Instantiate(placeBlock, spawnPosition, Quaternion.identity);
                 Debug.Log("collide");
             }
         }
@@ -37,6 +37,7 @@ public class Grid : MonoBehaviour
         spriteRenderer.sprite = hoverSprite;
     }
 
+    
     private void OnMouseExit()//mouse exit -> back normal
     {
         spriteRenderer.sprite = normalSprite;
