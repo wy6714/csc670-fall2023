@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject blockObj;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +17,5 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void SelectBlock()
-    {
-        
-        GameObject block = Instantiate(blockObj, GetMousePos(), transform.rotation);
-    }
-
-    Vector3 GetMousePos()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 0f;
-        Vector3 MouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        return MouseWorldPosition;
-    }
+    
 }
