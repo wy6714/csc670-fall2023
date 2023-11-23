@@ -4042,7 +4042,7 @@ GameObject:
   - component: {fileID: 542371532}
   - component: {fileID: 542371531}
   m_Layer: 5
-  m_Name: Normal Block
+  m_Name: Normal Block Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4110,7 +4110,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 542371532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4068494324756583294, guid: 5b1356a6d461f4580926d0e3e56324d4, type: 3}
+        m_TargetAssemblyTypeName: Grid, Assembly-CSharp
+        m_MethodName: SetNormalPrefab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &542371532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8401,7 +8413,7 @@ GameObject:
   - component: {fileID: 1146961697}
   - component: {fileID: 1146961696}
   m_Layer: 5
-  m_Name: spikes
+  m_Name: Spikes Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8469,7 +8481,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1146961697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4068494324756583294, guid: 5b1356a6d461f4580926d0e3e56324d4, type: 3}
+        m_TargetAssemblyTypeName: Grid, Assembly-CSharp
+        m_MethodName: SetSpikesPrefab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146961697
 MonoBehaviour:
   m_ObjectHideFlags: 0
