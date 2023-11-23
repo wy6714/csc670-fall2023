@@ -29,7 +29,7 @@ public class Grid : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
-                Instantiate(placeBlock, spawnPosition, Quaternion.identity);
+                Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
                 Debug.Log("collide");
             }
         }

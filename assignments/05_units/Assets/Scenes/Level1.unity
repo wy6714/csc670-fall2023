@@ -4111,9 +4111,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4068494324756583294, guid: 5b1356a6d461f4580926d0e3e56324d4, type: 3}
-        m_TargetAssemblyTypeName: Grid, Assembly-CSharp
-        m_MethodName: SetNormalPrefab
+      - m_Target: {fileID: 901377497}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: NormalButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6894,6 +6894,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8726398249798378844, guid: 5b1356a6d461f4580926d0e3e56324d4, type: 3}
   m_PrefabInstance: {fileID: 896733852}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &901377496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901377498}
+  - component: {fileID: 901377497}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &901377497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901377496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e4b27e2e1014f7bba3be26d0f21ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBlock: {fileID: 0}
+  normal: {fileID: 5722826895276663736, guid: 682543cda82764ca993d006f56caa112, type: 3}
+  spikes: {fileID: 3199850377938552831, guid: 0e39cfa5c4b5d4e56bf74815d965d6f6, type: 3}
+--- !u!4 &901377498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901377496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4266506, y: 0.035957336, z: 10.418658}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &913428409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8482,9 +8529,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4068494324756583294, guid: 5b1356a6d461f4580926d0e3e56324d4, type: 3}
-        m_TargetAssemblyTypeName: Grid, Assembly-CSharp
-        m_MethodName: SetSpikesPrefab
+      - m_Target: {fileID: 901377497}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SpikesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15664,3 +15711,4 @@ SceneRoots:
   - {fileID: 749348504}
   - {fileID: 1745622238}
   - {fileID: 764658560}
+  - {fileID: 901377498}

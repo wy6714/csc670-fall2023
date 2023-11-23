@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gm;
 
     public GameObject currentBlock;
     public GameObject normal;
     public GameObject spikes;
 
     private string selected;
+
+
+    void Awake()
+    {
+        gm = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
