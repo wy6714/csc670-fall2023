@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         selected = "null";
+        currentBlock = null;
     }
 
     // Update is called once per frame

@@ -27,7 +27,7 @@ public class CollectionManager : MonoBehaviour
 
     public void collectFruit(GameObject fruitObj)
     {
-        Debug.Log("invoke collect manager");
+        //Debug.Log("invoke collect manager");
         Animator anim = fruitObj.GetComponent<Animator>();
         anim.SetBool("isCollected", true);
         Destroy(fruitObj, 1f);
