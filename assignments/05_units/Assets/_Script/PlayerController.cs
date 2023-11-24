@@ -11,25 +11,32 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+
+        //ani
+        if (horizontal > 0f || horizontal < 0)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
         Flip();
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     private void Flip()
