@@ -68,10 +68,10 @@ public class PlayerController : MonoBehaviour
             whaleAnim.SetTrigger("WhaleEat");
             Destroy(gameObject,0.5f);
         }
-        if (other.CompareTag("Spikes"))
-        {
-            Debug.Log("player collide with spikes");
-        }
+        //if (other.CompareTag("Spikes"))
+        //{
+        //    Debug.Log("player collide with spikes");
+        //}
     }
 
     private void createDust()

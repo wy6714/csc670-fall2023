@@ -9,7 +9,7 @@ public class Whale : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Transform targetPos;
-    public float speed;
+    public float speed=5;
 
     public bool Freze;
     // Start is called before the first frame update
@@ -24,10 +24,15 @@ public class Whale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Freze)
+        if (Freze)
         {
-            Movement();
+            speed = 0;
         }
+        else
+        {
+            speed = 5f;
+        }
+        Movement();
         
     }
 
@@ -70,22 +75,22 @@ public class Whale : MonoBehaviour
         Gizmos.DrawWireSphere(Right.transform.position, 0.5f);
     }
 
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.CompareTag("Spikes"))
-    //    {
-    //        Debug.Log("whale collide with spikes");
-    //        Freze = true;
-    //        anim.SetTrigger("WhaleDie");
-    //        //Destroy(gameObject, 0.3f);
-    //    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Spikes"))
+        {
+            Debug.Log("whale collide with spikes");
+            Freze = true;
+            anim.SetTrigger("WhaleDie");
+            Destroy(gameObject, 0.3f);
+        }
 
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        Freze = true;
-    //        anim.SetTrigger("WhaleEat");
-    //        Freze = false;
-    //    }
-    //}
-    
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Freze = true;
+            anim.SetTrigger("WhaleEat");
+            Freze = false;
+        }
+    }
+
 }
