@@ -47,7 +47,7 @@ public class Grid : MonoBehaviour
                     // use observer pattern to update fruit UI, pass its cost
                     //Block blockScript = blockObj.GetComponent<Block>();
                     updateFruit?.Invoke(blockScript.cost);
-                    Debug.Log("collide");
+                    Debug.Log("Placed a block");
                 }
                 else
                 {

@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 2251596}
   - component: {fileID: 2251595}
   - component: {fileID: 2251594}
+  - component: {fileID: 2251597}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Enemy
@@ -261,7 +262,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -309,6 +310,42 @@ MonoBehaviour:
   Left: {fileID: 696221655}
   Right: {fileID: 1429049353}
   speed: 5
+  Freze: 0
+--- !u!70 &2251597
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251590}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.125, y: 1.4375}
+  m_Direction: 1
 --- !u!4 &2755270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5622457481341392979, guid: 2da49f80371f94efd96fb06278ae49fe, type: 3}
@@ -7460,7 +7497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentBlock: {fileID: 0}
   normal: {fileID: 5722826895276663736, guid: 682543cda82764ca993d006f56caa112, type: 3}
-  spikes: {fileID: 3199850377938552831, guid: 0e39cfa5c4b5d4e56bf74815d965d6f6, type: 3}
+  spikes: {fileID: 5717141227827753132, guid: 0004239196a994a008ca97c82ee3592b, type: 3}
 --- !u!4 &901377498
 Transform:
   m_ObjectHideFlags: 0
@@ -8511,9 +8548,9 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2251593}
   - {fileID: 696221656}
   - {fileID: 1429049354}
-  - {fileID: 2251593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1116790704
@@ -12757,6 +12794,10 @@ PrefabInstance:
     - target: {fileID: 4999658214411405030, guid: cac81308f9fda4bb9b4fb43ccf57f04d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999658214411405030, guid: cac81308f9fda4bb9b4fb43ccf57f04d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7709775674559186098, guid: cac81308f9fda4bb9b4fb43ccf57f04d, type: 3}
       propertyPath: m_Constraints

@@ -61,6 +61,17 @@ public class PlayerController : MonoBehaviour
         {
             collectFruit?.Invoke(other.gameObject);
         }
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("player collide with enemy");
+            Animator whaleAnim = other.gameObject.GetComponent<Animator>();
+            whaleAnim.SetTrigger("WhaleEat");
+            Destroy(gameObject,0.5f);
+        }
+        if (other.CompareTag("Spikes"))
+        {
+            Debug.Log("player collide with spikes");
+        }
     }
 
     private void createDust()
