@@ -24,7 +24,11 @@ public class Grid : MonoBehaviour
 
     private void Update()
     {
-        blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
+        if (GameManager.gm.currentBlock != null)
+        {
+            blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
+        }
+
 
         if (Input.GetMouseButtonDown(0) && placeBlock != null)
         {

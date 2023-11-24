@@ -30,7 +30,11 @@ public class UIManagment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Block blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
+        if(GameManager.gm.currentBlock != null)
+        {
+            Block blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
+        }
+        
     }
     public void UpdateFruitText(int cost)
     {
