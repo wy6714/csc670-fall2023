@@ -36,7 +36,7 @@ public class Grid : MonoBehaviour
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
 
-                if(UIManagment.fruitNum -blockScript.cost >= 0)
+                if(UIManagment.fruitNum - blockScript.cost >= 0)
                 {
                     GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
 

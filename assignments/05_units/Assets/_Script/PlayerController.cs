@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private Animator anim;
 
+    public static event Action<GameObject> collectFruit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        //ani
+        //run animation
         if (horizontal > 0f || horizontal < 0)
         {
             anim.SetBool("isRunning", true);
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
         Flip();
     }
 
-    private void Flip()
+    private void Flip()//change side
     {
         if(isFacingRight && horizontal <0f || !isFacingRight && horizontal > 0f)
         {
@@ -47,6 +50,14 @@ public class PlayerController : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Fruit"))
+        {
+            collectFruit?.Invoke(other.gameObject);
         }
     }
 }

@@ -13,11 +13,13 @@ public class UIManagment : MonoBehaviour
         fruitNum = 6;
         fruitNumText.text = ":" + fruitNum.ToString();
         Grid.updateFruit += UpdateFruitText;
+        PlayerController.collectFruit += CollectFruitUI;
     }
 
     private void OnDisable()
     {
         Grid.updateFruit -= UpdateFruitText;
+        PlayerController.collectFruit -= CollectFruitUI;
     }
     // Start is called before the first frame update
     void Start()
@@ -42,5 +44,11 @@ public class UIManagment : MonoBehaviour
             fruitNumText.text = fruitNum.ToString()+" Not enough!";
         }
         
+    }
+
+    public void CollectFruitUI(GameObject fruitObj)
+    {
+        fruitNum += 1;
+        fruitNumText.text = ":" + fruitNum.ToString();
     }
 }
