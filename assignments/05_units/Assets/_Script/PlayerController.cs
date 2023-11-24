@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private Animator anim;
 
+    public ParticleSystem dust;
     public static event Action<GameObject> collectFruit;
 
     // Start is called before the first frame update
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isFacingRight && horizontal <0f || !isFacingRight && horizontal > 0f)
         {
+            createDust();
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
@@ -59,5 +61,10 @@ public class PlayerController : MonoBehaviour
         {
             collectFruit?.Invoke(other.gameObject);
         }
+    }
+
+    private void createDust()
+    {
+        dust.Play();
     }
 }
