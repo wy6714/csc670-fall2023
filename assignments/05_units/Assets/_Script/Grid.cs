@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
@@ -11,6 +12,8 @@ public class Grid : MonoBehaviour
     public Sprite normalSprite;
 
     private SpriteRenderer spriteRenderer;
+
+    public static event Action<int> updateFruit;
 
     private void Start()
     {
@@ -29,7 +32,11 @@ public class Grid : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
-                Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
+                GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
+
+                // use observer pattern to update fruit UI, pass its cost
+                Block blockScript = blockObj.GetComponent<Block>();
+                updateFruit?.Invoke(blockScript.cost);
                 Debug.Log("collide");
             }
         }
