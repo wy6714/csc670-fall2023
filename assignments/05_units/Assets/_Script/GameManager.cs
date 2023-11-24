@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject currentBlock;
     public GameObject normal;
     public GameObject spikes;
+    public GameObject jumpBlock;
 
     private string selected;
 
@@ -40,6 +41,13 @@ public class GameManager : MonoBehaviour
     {
         currentBlock = normal;
         selected = "normal";
+        Debug.Log(selected);
+    }
+
+    public void JumpButton()
+    {
+        currentBlock = jumpBlock;
+        selected = "jump";
         Debug.Log(selected);
     }
 
