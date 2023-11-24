@@ -15,6 +15,7 @@ public class Grid : MonoBehaviour
 
     public static event Action<int> updateFruit;
 
+    private Block blockScript;
     private void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -23,6 +24,8 @@ public class Grid : MonoBehaviour
 
     private void Update()
     {
+        blockScript = GameManager.gm.currentBlock.GetComponent<Block>();
+
         if (Input.GetMouseButtonDown(0) && placeBlock != null)
         {
             //mouse click place block
@@ -32,12 +35,21 @@ public class Grid : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
                 Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 10f);
-                GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
 
-                // use observer pattern to update fruit UI, pass its cost
-                Block blockScript = blockObj.GetComponent<Block>();
-                updateFruit?.Invoke(blockScript.cost);
-                Debug.Log("collide");
+                if(UIManagment.fruitNum -blockScript.cost >= 0)
+                {
+                    GameObject blockObj = Instantiate(GameManager.gm.currentBlock, spawnPosition, Quaternion.identity);
+
+                    // use observer pattern to update fruit UI, pass its cost
+                    //Block blockScript = blockObj.GetComponent<Block>();
+                    updateFruit?.Invoke(blockScript.cost);
+                    Debug.Log("collide");
+                }
+                else
+                {
+                    updateFruit?.Invoke(-1);//do not have enough fruit
+                }
+                
             }
         }
 
