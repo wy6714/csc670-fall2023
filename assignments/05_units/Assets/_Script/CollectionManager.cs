@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectionManager : MonoBehaviour
 {
+
     private void OnEnable()
     {
         PlayerController.collectFruit += collectFruit;
@@ -32,4 +33,6 @@ public class CollectionManager : MonoBehaviour
         anim.SetBool("isCollected", true);
         Destroy(fruitObj, 1f);
     }
+
+    
 }

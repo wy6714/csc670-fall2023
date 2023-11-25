@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public ParticleSystem dust;
     public static event Action<GameObject> collectFruit;
+    public static event Action<GameObject> GetFlag;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +67,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("player collide with enemy");
             Animator whaleAnim = other.gameObject.GetComponent<Animator>();
             whaleAnim.SetTrigger("WhaleEat");
-            Destroy(gameObject,0.5f);
+            Destroy(gameObject,0.2f);
+        }
+        if (other.CompareTag("Flag"))
+        {
+            GetFlag?.Invoke(other.gameObject);
         }
         //if (other.CompareTag("Spikes"))
         //{

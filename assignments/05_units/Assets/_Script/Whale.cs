@@ -83,6 +83,7 @@ public class Whale : MonoBehaviour
             Freze = true;
             anim.SetTrigger("WhaleDie");
             Destroy(gameObject, 0.3f);
+            Destroy(other.transform.parent.gameObject);
         }
 
         if (other.gameObject.CompareTag("Player"))
