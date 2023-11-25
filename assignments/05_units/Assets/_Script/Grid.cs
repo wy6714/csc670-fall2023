@@ -15,6 +15,8 @@ public class Grid : MonoBehaviour
 
     public static event Action<int> updateFruit;
 
+    public static event Action<GameObject> ErrorHappened;
+
     private Block blockScript;
     private void Start()
     {
@@ -52,6 +54,7 @@ public class Grid : MonoBehaviour
                 else
                 {
                     updateFruit?.Invoke(-1);//do not have enough fruit
+                    ErrorHappened?.Invoke(gameObject);
                 }
                 
             }

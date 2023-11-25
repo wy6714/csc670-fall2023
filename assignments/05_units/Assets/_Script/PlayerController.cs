@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dust;
     public static event Action<GameObject> collectFruit;
     public static event Action<GameObject> GetFlag;
+    public static event Action<GameObject> playerDie;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("player collide with enemy");
             Animator whaleAnim = other.gameObject.GetComponent<Animator>();
             whaleAnim.SetTrigger("WhaleEat");
+            playerDie?.Invoke(gameObject);
             Destroy(gameObject,0.2f);
         }
         if (other.CompareTag("Flag"))

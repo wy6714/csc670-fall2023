@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class Whale : MonoBehaviour
     private Animator anim;
     private Transform targetPos;
     public float speed=5;
+
+    public static event Action<GameObject> WhaleDieHappen;
 
     public bool Freze;
     // Start is called before the first frame update
@@ -81,6 +84,7 @@ public class Whale : MonoBehaviour
         {
             Debug.Log("whale collide with spikes");
             Freze = true;
+            WhaleDieHappen?.Invoke(gameObject);
             anim.SetTrigger("WhaleDie");
             Destroy(gameObject, 0.3f);
             Destroy(other.transform.parent.gameObject);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     private string selected;
 
+    public static event Action<GameObject> WinHappened;
+
     void Awake()
     {
         gm = this;
@@ -26,12 +29,14 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.GetFlag += UpdateFlagNum;
         PlayerController.GetFlag += FlagAnim;
+        WinHappened += showChampion;
     }
 
     private void OnDisable()
     {
 
         PlayerController.GetFlag -= UpdateFlagNum;
+        WinHappened -= showChampion;
     }
     // Start is called before the first frame update
     void Start()
@@ -45,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         if (flagNum == 2)
         {
-            champion.SetActive(true);
+            WinHappened?.Invoke(champion);
         }
     }
 
@@ -54,6 +59,11 @@ public class GameManager : MonoBehaviour
         Flag objScript = obj.GetComponent<Flag>();
         flagNum += objScript.num;
         objScript.num = 0;
+    }
+
+    public void showChampion(GameObject obj)
+    {
+        obj.SetActive(true);
     }
 
     public void FlagAnim(GameObject obj)
