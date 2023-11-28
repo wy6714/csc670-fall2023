@@ -40,13 +40,13 @@ public class AudioManager : MonoBehaviour
 
         PlayerController.collectFruit -= playGetFruitAudio;
 
-        PlayerController.playerDie += playerDieAudio;
+        PlayerController.playerDie -= playerDieAudio;
 
         PlayerController.GetFlag -= playGetFlagAudio;
 
-        GameManager.WinHappened += playWinAudio;
+        GameManager.WinHappened -= playWinAudio;
 
-        Grid.updateFruit += playPlaceBlockAudio;
+        Grid.updateFruit -= playPlaceBlockAudio;
 
         Grid.ErrorHappened -= playerErrorAudio;
 

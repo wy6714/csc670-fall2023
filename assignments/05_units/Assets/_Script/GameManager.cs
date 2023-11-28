@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject spikes;
     public GameObject jumpBlock;
 
+
     private string selected;
 
     public static event Action<GameObject> WinHappened;

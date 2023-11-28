@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     public ParticleSystem dust;
+
+    //public AudioSource winAudio;
     public static event Action<GameObject> collectFruit;
     public static event Action<GameObject> GetFlag;
     public static event Action<GameObject> playerDie;
@@ -75,6 +77,12 @@ public class PlayerController : MonoBehaviour
         {
             GetFlag?.Invoke(other.gameObject);
         }
+
+        //if (other.CompareTag("champion"))
+        //{
+        //    winAudio.Play();
+        //}
+        
         //if (other.CompareTag("Spikes"))
         //{
         //    Debug.Log("player collide with spikes");
