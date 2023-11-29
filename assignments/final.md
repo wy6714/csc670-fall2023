@@ -19,6 +19,7 @@ Arrow key to move the player.
 
 ### Visual Style:
 
+![Style images](/images/style.png)
 ### Audio Style:
 
 ### Interface Sketch:
