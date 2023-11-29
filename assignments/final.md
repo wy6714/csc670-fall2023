@@ -19,10 +19,13 @@ Arrow key to move the player.
 
 ### Visual Style:
 
-![Style Image](./assignment/images/style.png)
+![Style Image](images/style.png)
 ### Audio Style:
+keep the audio style of the [current one](https://wy6714.github.io/csc670-fall2023/games/05_units/).
 
 ### Interface Sketch:
+
+![Interface Image](images/Interface.png)
 
 ### Low Bar
 Polish the current project:
