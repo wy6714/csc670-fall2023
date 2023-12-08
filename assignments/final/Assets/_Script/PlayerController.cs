@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -88,6 +89,13 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("collide level checker");
             EnterLevel2?.Invoke(gameObject);
+        }
+
+        //if fall down, restart
+        if (other.CompareTag("Fall"))
+        {
+            Debug.Log("fall down");
+            SceneManager.LoadScene("level1");
         }
         //if (other.CompareTag("champion"))
         //{

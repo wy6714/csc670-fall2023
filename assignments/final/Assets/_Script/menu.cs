@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instructionPanel.SetActive(true);
+        instructionPanel.SetActive(false);
         creditPanel.SetActive(false);
     }
 
@@ -33,5 +34,10 @@ public class menu : MonoBehaviour
     {
         instructionPanel.SetActive(false);
         creditPanel.SetActive(true);
+    }
+
+    public void play()
+    {
+        SceneManager.LoadScene("level1");
     }
 }

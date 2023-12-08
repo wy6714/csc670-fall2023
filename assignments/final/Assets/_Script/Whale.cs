@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Whale : MonoBehaviour
 {
@@ -95,7 +96,13 @@ public class Whale : MonoBehaviour
             Freze = true;
             anim.SetTrigger("WhaleEat");
             Freze = false;
+            Invoke("ResetScene", 1f);
         }
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene("level1");
     }
 
 }
