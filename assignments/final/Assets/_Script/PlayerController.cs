@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     public ParticleSystem dust;
+    public GameObject level1Collider;
 
     //public AudioSource winAudio;
     public static event Action<GameObject> collectFruit;
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("collide champion");
             showLevel2?.Invoke(gameObject);
+            level1Collider.SetActive(false);
         }
         if (other.CompareTag("levelChecker"))
         {
