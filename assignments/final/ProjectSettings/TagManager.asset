@@ -11,6 +11,8 @@ TagManager:
   - Flag
   - champion
   - levelChecker
+  - win
+  - saw
   layers:
   - Default
   - TransparentFX

@@ -90,6 +90,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("collide level checker");
             EnterLevel2?.Invoke(gameObject);
         }
+        if (other.CompareTag("saw"))
+        {
+            playerDie?.Invoke(gameObject);
+            anim.SetTrigger("playerDie");
+            Invoke("reStart", 0.5f);
+        }
 
         //if fall down, restart
         if (other.CompareTag("Fall"))
@@ -111,5 +117,10 @@ public class PlayerController : MonoBehaviour
     private void createDust()
     {
         dust.Play();
+    }
+
+    public void reStart()
+    {
+        SceneManager.LoadScene("level1");
     }
 }
