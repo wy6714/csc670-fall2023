@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
         PlayerController.GetFlag += playGetFlagAudio;
 
-        GameManager.WinHappened += playWinAudio;
+        //GameManager.WinHappened += playWinAudio;
 
         Grid.updateFruit += playPlaceBlockAudio;//place block Audio
 
@@ -44,7 +44,7 @@ public class AudioManager : MonoBehaviour
 
         PlayerController.GetFlag -= playGetFlagAudio;
 
-        GameManager.WinHappened -= playWinAudio;
+        //GameManager.WinHappened -= playWinAudio;
 
         Grid.updateFruit -= playPlaceBlockAudio;
 
@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
 
     public void playerErrorAudio(GameObject obj) => errorAudio.Play();
 
-    public void playWinAudio(GameObject obj) => winAudio.Play();
+    //public void playWinAudio(GameObject obj) => winAudio.Play();
 
     public void playGetFlagAudio(GameObject obj)
     {

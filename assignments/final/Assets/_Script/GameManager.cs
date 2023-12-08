@@ -7,17 +7,23 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
-    private int flagNum = 0;
+    public int flagNum = 0;
 
     public GameObject champion;
+    public GameObject champion2;
 
     public GameObject currentBlock;
     public GameObject normal;
     public GameObject spikes;
     public GameObject jumpBlock;
-
+    public GameObject level2Obj;
+    public GameObject level1Obj;
+    public GameObject level2ChampionObj;
 
     private string selected;
+
+    public Camera mainCamera;
+    public float targetCameraXPosition = 20f;
 
     public static event Action<GameObject> WinHappened;
 
@@ -25,11 +31,18 @@ public class GameManager : MonoBehaviour
     {
         gm = this;
         champion.SetActive(false);
+        level2Obj.SetActive(false);
     }
     private void OnEnable()
     {
         PlayerController.GetFlag += UpdateFlagNum;
         PlayerController.GetFlag += FlagAnim;
+
+        PlayerController.showLevel2 += DisplayLevel2;
+
+        PlayerController.EnterLevel2 += moveCamera;
+        PlayerController.EnterLevel2 += SceneUpdates;
+
         WinHappened += showChampion;
     }
 
@@ -37,6 +50,13 @@ public class GameManager : MonoBehaviour
     {
 
         PlayerController.GetFlag -= UpdateFlagNum;
+        PlayerController.GetFlag -= FlagAnim;
+
+        PlayerController.showLevel2 -= DisplayLevel2;
+
+        PlayerController.EnterLevel2 -= moveCamera;
+        PlayerController.EnterLevel2 -= SceneUpdates;
+
         WinHappened -= showChampion;
     }
     // Start is called before the first frame update
@@ -52,6 +72,7 @@ public class GameManager : MonoBehaviour
         if (flagNum == 2)
         {
             WinHappened?.Invoke(champion);
+            WinHappened?.Invoke(champion2);
         }
     }
 
@@ -71,6 +92,26 @@ public class GameManager : MonoBehaviour
     {
         Animator objAnim = obj.GetComponent<Animator>();
         objAnim.SetBool("NoFlag", true);
+    }
+
+    public void DisplayLevel2(GameObject obj)
+    {
+        level2Obj.SetActive(true);
+    }
+
+    //levelChecker.enterlevel2
+    public void moveCamera(GameObject obj)
+    {
+        Vector3 targetPosition = new Vector3(targetCameraXPosition, mainCamera.transform.position.y, mainCamera.transform.position.z);
+        mainCamera.transform.position = targetPosition;
+    }
+
+    public void SceneUpdates(GameObject obj)
+    {
+        //insctive level1
+        level1Obj.SetActive(false);
+        flagNum = 0;
+        level2ChampionObj.SetActive(false);
     }
 
     public void SpikesButton()

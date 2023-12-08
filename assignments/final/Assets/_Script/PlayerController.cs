@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public static event Action<GameObject> collectFruit;
     public static event Action<GameObject> GetFlag;
     public static event Action<GameObject> playerDie;
+    public static event Action<GameObject> showLevel2;
+    public static event Action<GameObject> EnterLevel2;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +79,16 @@ public class PlayerController : MonoBehaviour
         {
             GetFlag?.Invoke(other.gameObject);
         }
-
+        if (other.CompareTag("champion"))
+        {
+            Debug.Log("collide champion");
+            showLevel2?.Invoke(gameObject);
+        }
+        if (other.CompareTag("levelChecker"))
+        {
+            Debug.Log("collide level checker");
+            EnterLevel2?.Invoke(gameObject);
+        }
         //if (other.CompareTag("champion"))
         //{
         //    winAudio.Play();
