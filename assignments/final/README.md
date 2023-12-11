@@ -1,6 +1,6 @@
 # CSC670 Final Project: Block Engineer
 ### [PLAY](https://wy6714.github.io/csc670-fall2023/games/final/)
-<img width="964" alt="Screenshot 2023-12-11 at 10 02 53 AM" src="https://github.com/wy6714/csc670-fall2023/assets/78013025/6e90ff7b-3435-4adf-8051-48afe819313f">
+<img width="500" alt="Screenshot 2023-12-11 at 10 02 53 AM" src="https://github.com/wy6714/csc670-fall2023/assets/78013025/6e90ff7b-3435-4adf-8051-48afe819313f">
 
 
 ### Description
@@ -8,10 +8,11 @@ Click the block at the bottom and place it on the grid so that the pink engineer
 Left and Right Arrow Key to control pink engineer move. 
 
 ### How to Play
+![Page4](https://github.com/wy6714/csc670-fall2023/assets/78013025/3985b456-c1ad-4d85-8493-92348700857e)
 
+### Gameplay ScreenShot
 
-
-
+<img width="400" alt="Screenshot 2023-12-11 at 9 55 58 AM" src="https://github.com/wy6714/csc670-fall2023/assets/78013025/9ece8a3a-8c22-44c2-bf6d-db26ce8c1e86"> <img width="400" alt="Screenshot 2023-12-11 at 10 05 03 AM" src="https://github.com/wy6714/csc670-fall2023/assets/78013025/b5ad4ac4-23a1-41b6-9d24-b388404b1955">
 
 
 ## Documentation
