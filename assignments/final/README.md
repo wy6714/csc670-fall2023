@@ -1,4 +1,21 @@
 # CSC670 Final Project: Block Engineer
+### [PLAY](https://wy6714.github.io/csc670-fall2023/games/final/)
+<img width="964" alt="Screenshot 2023-12-11 at 10 02 53 AM" src="https://github.com/wy6714/csc670-fall2023/assets/78013025/6e90ff7b-3435-4adf-8051-48afe819313f">
+
+
+### Description
+Click the block at the bottom and place it on the grid so that the pink engineer can get to the destination. 
+Left and Right Arrow Key to control pink engineer move. 
+
+### How to Play
+
+
+
+
+
+
+## Documentation
+
 ### Theme:
 The pink engineer lives in a world that is full of dangers. Every day she starts her work by placing blocks so that she can head to the place where needs her help. 
 
